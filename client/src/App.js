@@ -4,7 +4,7 @@ import { getMissions } from "./actions";
 import "./App.css";
 import MissionList from "./views/MissionList";
 
-const App = ({ getMissions }) => {
+const App = ({ state, getMissions }) => {
   return (
     <div className="App">
       <button onClick={getMissions}>Get Space X missions</button>
@@ -14,7 +14,9 @@ const App = ({ getMissions }) => {
 };
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    state
+  };
 };
 
 export default connect(
