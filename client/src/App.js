@@ -1,7 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getMissions } from "./actions";
+import { css } from '@emotion/core';
 import "./App.css";
+
+
 import MissionList from "./views/MissionList";
 
 const App = ({ state, getMissions }) => {
