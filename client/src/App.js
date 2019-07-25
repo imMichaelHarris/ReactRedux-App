@@ -1,12 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
+import { getMissions } from "./actions";
 import "./App.css";
 import MissionList from "./views/MissionList";
 
-const App = () => {
+const App = ({ getMissions }) => {
   return (
     <div className="App">
-      <button>Get Space X missions</button>
+      <button onClick={getMissions}>Get Space X missions</button>
       <MissionList />
     </div>
   );
@@ -18,5 +19,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {}
+  { getMissions }
 )(App);

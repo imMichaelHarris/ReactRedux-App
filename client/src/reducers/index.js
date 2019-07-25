@@ -5,11 +5,26 @@ import {
 } from "../actions";
 
 const initialState = {
-  test: "test"
+  loading: false,
+  error: "",
+  missions: []
 };
 
 export const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    case GET_MISSIONS_START:
+      return {
+        ...state,
+        error: "",
+        loading: true
+      };
+    case GET_MISSIONS_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        loading: false,
+        missions: payload
+      };
     default:
       return state;
   }
