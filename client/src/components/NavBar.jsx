@@ -18,7 +18,7 @@ import SearchIcon from "@material-ui/icons/Search";
 
 import Media from "react-media";
 
-const NavBar = () => {
+const NavBar = ({filterMissions}) => {
   const [open, setOpen] = useState();
   const [search, setSearch] = useState("")
   const missions = useSelector(state => state.missions);
@@ -119,6 +119,7 @@ const NavBar = () => {
 
   const handleChange = e => {
     setSearch(e.target.value)
+    filterMissions(search)
   }
   return (
     <div className={classes.root}>

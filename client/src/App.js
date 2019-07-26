@@ -14,18 +14,16 @@ const App = ({ state, getMissions }) => {
 
   const filterMissions = input => {
     setFiltered(
-      filtered.filter(mission => {
-        if (
-          mission.mission_name.includes(input) ||
-          mission.manufacturers.includes(input) ||
-          mission.mission_ids.includes(input)
-        ) {
-          return mission;
-        }
-      })
+      () => {
+        return filtered.filter(mission => {
+          return mission.mission_name.toLowerCase().includes(input.toLowerCase());
+        });
+      }
+      // mission.manufacturers.includes(input) ||
+      // mission.mission_ids.includes(input);
     );
   };
-
+  console.log(filtered);
   return (
     <div className="App">
       <NavBar filterMissions={filterMissions} />
