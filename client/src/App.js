@@ -8,15 +8,16 @@ import MissionList from "./views/MissionList";
 import NavBar from "./components/NavBar";
 
 const App = ({ state, getMissions }) => {
-const [filtered, setFiltered] = useState("")
-  useEffect(() => getMissions(), [])
+  const [filtered, setFiltered] = useState([]);
+  useEffect(() => getMissions(), []);
+  useEffect(() => setFiltered(state.missions), [state.missions]);
   return (
     <div className="App">
       <NavBar />
       <h1>SPACE X MISSIONS</h1>
 
       {/* <button onClick={getMissions}>Get Space X missions</button> */}
-      <MissionList />
+      <MissionList missions={filtered} />
     </div>
   );
 };

@@ -4,8 +4,8 @@ import { RingLoader } from "react-spinners";
 import Grid from "@material-ui/core/Grid";
 import Mission from "../components/Mission";
 
-const MissionList = () => {
-  const state = useSelector(state => state);
+const MissionList = ({ missions }) => {
+  const loading = useSelector(state => state.loading);
   return (
     <div className="container">
       <Grid
@@ -19,9 +19,9 @@ const MissionList = () => {
           sizeUnit={"px"}
           size={80}
           color={"#1A2059"}
-          loading={state.loading}
+          loading={loading}
         />
-        {state.missions.map(mission => (
+        {missions.map(mission => (
           <Grid
             container
             justify="center"
