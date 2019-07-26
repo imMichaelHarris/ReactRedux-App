@@ -18,7 +18,6 @@ const Mission = ({ mission }) => {
       position: "absolute",
       bottom: 0,
       right: 0
-
     },
     title: {
         height: 60
