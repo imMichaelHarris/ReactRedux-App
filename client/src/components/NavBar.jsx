@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+
+//MATERIAL UI
 import { fade, makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
@@ -13,6 +15,8 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
+
+import Media from "react-media";
 
 const NavBar = () => {
   const [open, setOpen] = useState();
@@ -94,9 +98,13 @@ const NavBar = () => {
       </List>
       <Divider />
       <List>
-        {missions.map(({mission_name}) => {
+        {missions.map(({ mission_name }) => {
           return (
-            <ListItem component="a" href="http://immichaelharris.com" key={mission_name}>
+            <ListItem
+              component="a"
+              href="http://immichaelharris.com"
+              key={mission_name}
+            >
               <ListItemText primary={mission_name} />
             </ListItem>
           );
@@ -109,14 +117,20 @@ const NavBar = () => {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            onClick={toggleDrawer()}
-          >
-            <MenuIcon />
-          </IconButton>
+          <Media query="(max-width:1000px)">
+            {matches =>
+              matches ? (
+                <IconButton
+                  edge="start"
+                  color="inherit"
+                  aria-label="menu"
+                  onClick={toggleDrawer()}
+                >
+                  <MenuIcon />
+                </IconButton>
+              ) : null
+            }
+          </Media>
           <Typography className={classes.title} variant="h6" noWrap />
           <div className={classes.search}>
             <div className={classes.searchIcon}>

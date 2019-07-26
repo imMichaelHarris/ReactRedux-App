@@ -12,7 +12,7 @@ const MissionList = () => {
         container
         spacing={2}
         direction="row"
-        justify="space-around"
+        justify="center"
         alignItems="center"
       >
         <RingLoader
@@ -22,7 +22,15 @@ const MissionList = () => {
           loading={state.loading}
         />
         {state.missions.map(mission => (
-          <Grid item xs={10} sm={6} md={4} key={mission.mission_id}>
+          <Grid
+            container
+            justify="center"
+            item
+            xs={10}
+            sm={6}
+            md={4}
+            key={mission.mission_id}
+          >
             <Mission mission={mission} />
           </Grid>
         ))}
