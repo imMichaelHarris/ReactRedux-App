@@ -10,7 +10,7 @@ const MissionList = () => {
     <div className="container">
       <Grid
         container
-        spacing={6}
+        spacing={2}
         direction="row"
         justify="space-around"
         alignItems="center"
@@ -22,7 +22,7 @@ const MissionList = () => {
           loading={state.loading}
         />
         {state.missions.map(mission => (
-          <Grid item xs={12} sm={6} md={4} key={mission.mission_id}>
+          <Grid item xs={10} sm={6} md={4} key={mission.mission_id}>
             <Mission mission={mission} />
           </Grid>
         ))}
