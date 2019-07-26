@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { getMissions } from "./actions";
 
@@ -8,7 +8,7 @@ import MissionList from "./views/MissionList";
 import NavBar from "./components/NavBar";
 
 const App = ({ state, getMissions }) => {
-
+const [filtered, setFiltered] = useState("")
   useEffect(() => getMissions(), [])
   return (
     <div className="App">
