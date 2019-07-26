@@ -96,7 +96,7 @@ const NavBar = () => {
       <List>
         {missions.map(({mission_name}) => {
           return (
-            <ListItem component="a" href="http://immichaelharris.com">
+            <ListItem component="a" href="http://immichaelharris.com" key={mission_name}>
               <ListItemText primary={mission_name} />
             </ListItem>
           );

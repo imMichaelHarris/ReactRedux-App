@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getMissions } from "./actions";
-import { css } from "@emotion/core";
 
 import "./App.css";
 
