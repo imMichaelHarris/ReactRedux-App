@@ -20,6 +20,7 @@ import Media from "react-media";
 
 const NavBar = () => {
   const [open, setOpen] = useState();
+  const [search, setSearch] = useState("")
   const missions = useSelector(state => state.missions);
   const useStyles = makeStyles(theme => ({
     root: {
@@ -71,6 +72,9 @@ const NavBar = () => {
           width: 200
         }
       }
+    },
+    colorPrimary: {
+        background: "#1A2059"
     }
   }));
   const classes = useStyles();
@@ -113,9 +117,12 @@ const NavBar = () => {
     </div>
   );
 
+  const handleChange = e => {
+    setSearch(e.target.value)
+  }
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.colorPrimary}>
         <Toolbar>
           <Media query="(max-width:1000px)">
             {matches =>
@@ -138,6 +145,8 @@ const NavBar = () => {
             </div>
             <InputBase
               placeholder="Search…"
+              onChange={handleChange}
+              value={search}
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput

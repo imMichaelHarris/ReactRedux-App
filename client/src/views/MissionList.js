@@ -17,8 +17,8 @@ const MissionList = () => {
       >
         <RingLoader
           sizeUnit={"px"}
-          size={100}
-          color={"#123abc"}
+          size={80}
+          color={"#1A2059"}
           loading={state.loading}
         />
         {state.missions.map(mission => (
