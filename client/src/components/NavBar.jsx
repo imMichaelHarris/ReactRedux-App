@@ -16,6 +16,7 @@ import SearchIcon from "@material-ui/icons/Search";
 
 const NavBar = () => {
   const [open, setOpen] = useState();
+  const missions = useSelector(state => state.missions);
   const useStyles = makeStyles(theme => ({
     root: {
       flexGrow: 1
@@ -93,9 +94,13 @@ const NavBar = () => {
       </List>
       <Divider />
       <List>
-        <ListItem component="a" href="http://immichaelharris.com">
-          <ListItemText primary="SPACE X HOME" />
-        </ListItem>
+        {missions.map(({mission_name}) => {
+          return (
+            <ListItem component="a" href="http://immichaelharris.com">
+              <ListItemText primary={mission_name} />
+            </ListItem>
+          );
+        })}
       </List>
     </div>
   );
