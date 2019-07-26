@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { CircleLoader } from "react-spinners";
+import { RingLoader } from "react-spinners";
 
 import Mission from '../components/Mission'
 
@@ -8,13 +8,12 @@ const MissionList = () => {
   const state = useSelector(state => state);
   return (
     <div>
-      <CircleLoader
+      <RingLoader
         sizeUnit={"px"}
-        size={150}
+        size={100}
         color={"#123abc"}
         loading={state.loading}
       />
-      mission list
       {state.missions.map(mission => (
         <Mission key={mission.mission_id} mission={mission} />
       ))}
