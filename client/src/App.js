@@ -11,8 +11,8 @@ import NavBar from "./components/NavBar";
 const App = ({ state, getMissions }) => {
   return (
     <div className="App">
-      <button onClick={getMissions}>Get Space X missions</button>
       <NavBar />
+      <button onClick={getMissions}>Get Space X missions</button>
       <MissionList />
     </div>
   );
