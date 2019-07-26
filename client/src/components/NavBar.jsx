@@ -1,16 +1,11 @@
 import React, { useState } from "react";
-import { useStyles } from "../styles/nav";
+import { useSelector } from "react-redux";
 import { fade, makeStyles } from "@material-ui/core/styles";
-
 import Drawer from "@material-ui/core/Drawer";
-import Button from "@material-ui/core/Button";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -92,25 +87,15 @@ const NavBar = () => {
       onKeyDown={toggleDrawer()}
     >
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItem component="a" href="http://SPACEX.com">
+          <ListItemText primary="SPACE X HOME" />
+        </ListItem>
       </List>
       <Divider />
       <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItem component="a" href="http://immichaelharris.com">
+          <ListItemText primary="SPACE X HOME" />
+        </ListItem>
       </List>
     </div>
   );
@@ -127,8 +112,7 @@ const NavBar = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-          </Typography>
+          <Typography className={classes.title} variant="h6" noWrap />
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
